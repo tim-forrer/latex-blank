@@ -1,0 +1,43 @@
+% ==========
+% = LABELS =
+% ==========
+
+\tikzstyle{inline text}=[text height=1.5ex, text depth=0.25ex,yshift=0.5mm]
+\tikzstyle{label}=[font=\footnotesize,text height=1.5ex, text depth=0.25ex,yshift=0.5mm]
+\tikzstyle{left label}=[label,anchor=east,xshift=1.5mm]
+\tikzstyle{right label}=[label,anchor=west,xshift=-1.5mm]
+
+% create a white box of the given tikz size
+\newcommand{\phantombox}[1]{\tikz[baseline=(current bounding box).east]{\path [use as bounding box] (0,0) rectangle #1;}}
+\tikzstyle{braceedge}=[decorate,decoration={brace,amplitude=2mm,raise=-1mm}]
+\tikzstyle{small braceedge}=[decorate,decoration={brace,amplitude=1mm,raise=-1mm}]
+
+\tikzstyle{doubled}=[line width=1.6pt] % set the line width for all doubled (quantum) maps/wires
+\tikzstyle{boldedge}=[doubled,shorten <=-0.17mm,shorten >=-0.17mm]
+\tikzstyle{boldedgegray}=[doubled,gray,shorten <=-0.17mm,shorten >=-0.17mm]
+\tikzstyle{singleedgegray}=[gray]%,shorten <=-0.1mm,shorten >=-0.1mm]
+
+\tikzstyle{semidoubled}=[line width=1.4pt] % set the line width for all doubled (quantum) maps/wires
+\tikzstyle{semiboldedgegray}=[semidoubled,gray,shorten <=-0.17mm,shorten >=-0.17mm]
+
+\tikzstyle{boxedge}=[semiboldedgegray]
+
+\tikzstyle{dottededge}=[dashed,shorten <=-0.17mm,shorten >=-0.17mm]
+
+\tikzstyle{boldedgedashed}=[very thick,dashed,shorten <=-0.17mm,shorten >=-0.17mm]
+\tikzstyle{vboldedgedashed}=[doubled,dashed,shorten <=-0.17mm,shorten >=-0.17mm]
+\tikzstyle{left hook arrow}=[left hook-latex]
+\tikzstyle{right hook arrow}=[right hook-latex]
+\tikzstyle{sembracket}=[line width=0.5pt,shorten <=-0.07mm,shorten >=-0.07mm]
+
+\tikzstyle{causal edge}=[->,thick,gray]
+\tikzstyle{causal nondir}=[thick,gray]
+\tikzstyle{timeline}=[thick,gray, dashed]
+
+% edges for (symmetric) correspondences/correlations
+\tikzstyle{cedge}=[<->,thick,gray!70!white]
+
+\tikzstyle{empty diagram}=[draw=gray!40!white,dashed,shape=rectangle,minimum width=1cm,minimum height=1cm]
+\tikzstyle{empty diagram small}=[draw=gray!50!white,dashed,shape=rectangle,minimum width=0.6cm,minimum height=0.5cm]
+
+\newcommand{\measurement}{\tikz[scale=0.6]{ \draw [use as bounding box,draw=none] (0,-0.1) rectangle (1,0.7); \draw [fill=white] (1,0) arc (0:180:5mm); \draw (0,0) -- (1,0) (0.5,0) -- +(60:7mm);}}

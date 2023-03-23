@@ -1,0 +1,16 @@
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{circuits.ee.IEC}
+\input{~/latex/tikzit/spiders.tex}
+\input{~/latex/tikzit/misc-maps.tex}
+\input{~/latex/tikzit/commutative.tex}
+\input{~/latex/tikzit/grounds.tex}
+\input{~/latex/tikzit/labels.tex}
+\input{~/latex/tikzit/parallelograms.tex}
+\input{~/latex/tikzit/various-dots.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzstyle{every picture}=[baseline=-0.25em,scale=0.5]
+\tikzstyle{dotpic}=[] % for backwards-compatibility
+\tikzstyle{diredges}=[every to/.style={diredge}]
+\tikzstyle{math matrix}=[matrix of math nodes,left delimiter=(,right delimiter=),inner sep=2pt,column sep=1em,row sep=0.5em,nodes={inner sep=0pt},text height=1.5ex, text depth=0.25ex]

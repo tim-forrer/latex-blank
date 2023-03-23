@@ -1,0 +1,263 @@
+% =======================
+% = PARALLELAGRAM BOXES =
+% =======================
+
+\makeatletter
+\newcommand{\boxshape}[3]{%
+\pgfdeclareshape{#1}{
+\inheritsavedanchors[from=rectangle] % this is nearly a rectangle
+\inheritanchorborder[from=rectangle]
+\inheritanchor[from=rectangle]{center}
+\inheritanchor[from=rectangle]{north}
+\inheritanchor[from=rectangle]{south}
+\inheritanchor[from=rectangle]{west}
+\inheritanchor[from=rectangle]{east}
+% ... and possibly more
+\backgroundpath{% this is new
+% store lower right in xa/ya and upper right in xb/yb
+\southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+\northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+
+\@tempdima=#2
+\@tempdimb=#3
+
+\pgfpathmoveto{\pgfpoint{\pgf@xa - 5pt + \@tempdima}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 5pt - \@tempdima}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 5pt + \@tempdimb}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 5pt - \@tempdimb}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 5pt + \@tempdima}{\pgf@ya}}
+\pgfpathclose
+}
+}}
+
+\boxshape{NEbox}{0pt}{5pt}
+\boxshape{SEbox}{0pt}{-5pt}
+\boxshape{NWbox}{5pt}{0pt}
+\boxshape{SWbox}{-5pt}{0pt}
+\boxshape{EBox}{-3pt}{3pt}
+\boxshape{WBox}{3pt}{-3pt}
+\makeatother
+
+\tikzstyle{cloud}=[shape=cloud,draw,minimum width=1.5cm,minimum height=1.5cm]
+
+\tikzstyle{map}=[draw,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{dashedmap}=[draw,dashed,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{mapdag}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{mapadj}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{maptrans}=[draw,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{mapconj}=[draw,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white]
+
+\tikzstyle{medium map}=[draw,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium map dag}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium map adj}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium map trans}=[draw,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium map conj}=[draw,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{semilarge map}=[draw,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge map trans}=[draw,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge map adj}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge map dag}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge map conj}=[draw,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{large map}=[draw,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{large map conj}=[draw,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{very large map}=[draw,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=17mm]
+
+\tikzstyle{medium dmap}=[draw,doubled,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium dmap dag}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium dmap adj}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium dmap trans}=[draw,doubled,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{medium dmap conj}=[draw,doubled,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=7mm]
+\tikzstyle{semilarge dmap}=[draw,doubled,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge dmap trans}=[draw,doubled,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge dmap adj}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge dmap dag}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{semilarge dmap conj}=[draw,doubled,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=9.5mm]
+\tikzstyle{large dmap}=[draw,doubled,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{large dmap conj}=[draw,doubled,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{large dmap trans}=[draw,doubled,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{large dmap adj}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{large dmap dag}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=12mm]
+\tikzstyle{very large dmap}=[draw,doubled,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white,minimum width=19.5mm]
+
+\tikzstyle{muxbox}=[draw,shape=rectangle,minimum height=3mm,minimum width=3mm,fill=white]
+\tikzstyle{dmuxbox}=[muxbox,doubled]
+
+\tikzstyle{box}=[draw,shape=rectangle,inner sep=2pt,minimum height=6mm,minimum width=6mm,fill=white]
+\tikzstyle{dbox}=[draw,doubled,shape=rectangle,inner sep=2pt,minimum height=6mm,minimum width=6mm,fill=white]
+\tikzstyle{dmap}=[draw,doubled,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{dmapdag}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{dmapadj}=[draw,doubled,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{dmaptrans}=[draw,doubled,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{dmapconj}=[draw,doubled,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white]
+
+\tikzstyle{ddmap}=[draw,doubled,dashed,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{ddmapdag}=[draw,doubled,dashed,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{ddmapadj}=[draw,doubled,dashed,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{ddmaptrans}=[draw,doubled,dashed,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{ddmapconj}=[draw,doubled,dashed,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white]
+
+\boxshape{sNEbox}{0pt}{3pt}
+\boxshape{sSEbox}{0pt}{-3pt}
+\boxshape{sNWbox}{3pt}{0pt}
+\boxshape{sSWbox}{-3pt}{0pt}
+\tikzstyle{smap}=[draw,shape=sNEbox,fill=white]
+\tikzstyle{smapdag}=[draw,shape=sSEbox,fill=white]
+\tikzstyle{smapadj}=[draw,shape=sSEbox,fill=white]
+\tikzstyle{smaptrans}=[draw,shape=sSWbox,fill=white]
+\tikzstyle{smapconj}=[draw,shape=sNWbox,fill=white]
+
+\tikzstyle{dsmap}=[draw,dashed,shape=sNEbox,fill=white]
+\tikzstyle{dsmapdag}=[draw,dashed,shape=sSEbox,fill=white]
+\tikzstyle{dsmaptrans}=[draw,dashed,shape=sSWbox,fill=white]
+\tikzstyle{dsmapconj}=[draw,dashed,shape=sNWbox,fill=white]
+
+\boxshape{mNEbox}{0pt}{10pt}
+\boxshape{mSEbox}{0pt}{-10pt}
+\boxshape{mNWbox}{10pt}{0pt}
+\boxshape{mSWbox}{-10pt}{0pt}
+\tikzstyle{mmap}=[draw,shape=mNEbox]
+\tikzstyle{mmapdag}=[draw,shape=mSEbox]
+\tikzstyle{mmaptrans}=[draw,shape=mSWbox]
+\tikzstyle{mmapconj}=[draw,shape=mNWbox]
+
+\tikzstyle{mmapgray}=[draw,fill=gray!40!white,shape=mNEbox]
+\tikzstyle{smapgray}=[draw,fill=gray!40!white,shape=sNEbox]
+
+\makeatletter
+
+\pgfdeclareshape{cornerpoint}{
+\inheritsavedanchors[from=rectangle] % this is nearly a rectangle
+\inheritanchorborder[from=rectangle]
+\inheritanchor[from=rectangle]{center}
+\inheritanchor[from=rectangle]{north}
+\inheritanchor[from=rectangle]{south}
+\inheritanchor[from=rectangle]{west}
+\inheritanchor[from=rectangle]{east}
+% ... and possibly more
+\backgroundpath{% this is new
+% store lower right in xa/ya and upper right in xb/yb
+\southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+\northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+
+\pgfmathsetmacro{\pgf@shorten@left}{\pgfkeysvalueof{/tikz/shorten left}}
+\pgfmathsetmacro{\pgf@shorten@right}{\pgfkeysvalueof{/tikz/shorten right}}
+
+\pgfpathmoveto{\pgfpoint{0.5 * (\pgf@xa + \pgf@xb)}{\pgf@ya - 5pt}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 8pt + \pgf@shorten@left}{\pgf@yb - 1.5 * \pgf@shorten@left}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 8pt + \pgf@shorten@left}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 8pt - \pgf@shorten@right}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 8pt - \pgf@shorten@right}{\pgf@yb - 1.5 * \pgf@shorten@right}}
+\pgfpathclose
+}
+}
+
+\pgfdeclareshape{cornercopoint}{
+\inheritsavedanchors[from=rectangle] % this is nearly a rectangle
+\inheritanchorborder[from=rectangle]
+\inheritanchor[from=rectangle]{center}
+\inheritanchor[from=rectangle]{north}
+\inheritanchor[from=rectangle]{south}
+\inheritanchor[from=rectangle]{west}
+\inheritanchor[from=rectangle]{east}
+% ... and possibly more
+\backgroundpath{% this is new
+% store lower right in xa/ya and upper right in xb/yb
+\southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+\northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+
+\pgfmathsetmacro{\pgf@shorten@left}{\pgfkeysvalueof{/tikz/shorten left}}
+\pgfmathsetmacro{\pgf@shorten@right}{\pgfkeysvalueof{/tikz/shorten right}}
+
+\pgfpathmoveto{\pgfpoint{0.5 * (\pgf@xa + \pgf@xb)}{\pgf@yb + 5pt}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 8pt + \pgf@shorten@left}{\pgf@ya + 1.5 * \pgf@shorten@left}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 8pt + \pgf@shorten@left}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 8pt - \pgf@shorten@right}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 8pt - \pgf@shorten@right}{\pgf@ya + 1.5 * \pgf@shorten@right}}
+\pgfpathclose
+}
+}
+
+\makeatother
+
+\pgfkeyssetvalue{/tikz/shorten left}{0pt}
+\pgfkeyssetvalue{/tikz/shorten right}{0pt}
+
+
+
+\tikzstyle{kpoint common}=[draw,fill=white,inner sep=1pt,minimum height=4mm]
+\tikzstyle{kpoint sc}=[shape=cornerpoint,kpoint common]
+\tikzstyle{kpoint adjoint sc}=[shape=cornercopoint,kpoint common]
+\tikzstyle{kpoint}=[shape=cornerpoint,shorten left=5pt,kpoint common]
+\tikzstyle{kpoint adjoint}=[shape=cornercopoint,shorten left=5pt,kpoint common]
+\tikzstyle{kpoint conjugate}=[shape=cornerpoint,shorten right=5pt,kpoint common]
+\tikzstyle{kpoint transpose}=[shape=cornercopoint,shorten right=5pt,kpoint common]
+\tikzstyle{kpoint symm}=[shape=cornerpoint,shorten left=5pt,shorten right=5pt,kpoint common]
+
+\tikzstyle{wide kpoint sc}=[shape=cornerpoint,kpoint common, minimum width=1 cm]
+\tikzstyle{wide kpointdag sc}=[shape=cornercopoint,kpoint common, minimum width=1 cm]
+
+\tikzstyle{black kpoint}=[shape=cornerpoint,shorten left=5pt,kpoint common,fill=black,font=\color{white}]
+
+\tikzstyle{black kpoint sm}=[shape=cornerpoint,shorten left=5pt,kpoint common,fill=black,font=\color{white},scale=0.75]
+
+\tikzstyle{black kpoint adjoint}=[shape=cornercopoint,shorten left=5pt,kpoint common,fill=black,font=\color{white}]
+\tikzstyle{black kpointadj}=[shape=cornercopoint,shorten left=5pt,kpoint common,fill=black,font=\color{white}]
+
+\tikzstyle{black kpointadj sm}=[shape=cornercopoint,shorten left=5pt,kpoint common,fill=black,font=\color{white},scale=0.75]
+
+\tikzstyle{black dkpoint}=[shape=cornerpoint,shorten left=5pt,kpoint common,fill=black, doubled,font=\color{white}]
+\tikzstyle{black dkpoint adjoint}=[shape=cornercopoint,shorten left=5pt,kpoint common,fill=black, doubled,font=\color{white}]
+\tikzstyle{black dkpointadj}=[shape=cornercopoint,shorten left=5pt,kpoint common,fill=black, doubled,font=\color{white}]
+
+\tikzstyle{black dkpoint sm}=[shape=cornerpoint,shorten left=5pt,kpoint common,fill=black, doubled,font=\color{white},scale=0.75]
+\tikzstyle{black dkpointadj sm}=[shape=cornercopoint,shorten left=5pt,kpoint common,fill=black, doubled,font=\color{white},scale=0.75]
+
+\tikzstyle{kpointdag}=[kpoint adjoint]
+\tikzstyle{kpointadj}=[kpoint adjoint]
+\tikzstyle{kpointconj}=[kpoint conjugate]
+\tikzstyle{kpointtrans}=[kpoint transpose]
+
+\tikzstyle{big kpoint}=[kpoint, minimum width=1.2 cm, minimum height=8mm, inner sep=4pt, text depth=3mm]
+
+\tikzstyle{wide kpoint}=[kpoint, minimum width=1 cm, inner sep=2pt]%, text depth=-0.7 mm]
+\tikzstyle{wide kpointdag}=[kpointdag, minimum width=1 cm, inner sep=2pt]%, text depth=0.7 mm]
+\tikzstyle{wide kpointconj}=[kpointconj, minimum width=1 cm, inner sep=2pt]%, text depth=-0.7 mm]
+\tikzstyle{wide kpointtrans}=[kpointtrans, minimum width=1 cm, inner sep=2pt]%, text depth=0.7 mm]
+
+\tikzstyle{wider kpoint}=[kpoint, minimum width=1.25 cm, inner sep=2pt]%, text depth=-0.7 mm]
+\tikzstyle{wider kpointdag}=[kpointdag, minimum width=1.25 cm, inner sep=2pt]%, text depth=0.7 mm]
+\tikzstyle{wider kpointconj}=[kpointconj, minimum width=1.25 cm, inner sep=2pt]%, text depth=-0.7 mm]
+\tikzstyle{wider kpointtrans}=[kpointtrans, minimum width=1.25 cm, inner sep=2pt]%, text depth=0.7 mm]
+
+\tikzstyle{gray kpoint}=[kpoint,fill=gray!50!white]
+\tikzstyle{gray kpointdag}=[kpointdag,fill=gray!50!white]
+\tikzstyle{gray kpointadj}=[kpointadj,fill=gray!50!white]
+\tikzstyle{gray kpointconj}=[kpointconj,fill=gray!50!white]
+\tikzstyle{gray kpointtrans}=[kpointtrans,fill=gray!50!white]
+
+\tikzstyle{gray dkpoint}=[kpoint,fill=gray!50!white,doubled]
+\tikzstyle{gray dkpointdag}=[kpointdag,fill=gray!50!white,doubled]
+\tikzstyle{gray dkpointadj}=[kpointadj,fill=gray!50!white,doubled]
+\tikzstyle{gray dkpointconj}=[kpointconj,fill=gray!50!white,doubled]
+\tikzstyle{gray dkpointtrans}=[kpointtrans,fill=gray!50!white,doubled]
+
+\tikzstyle{white label}=[draw,fill=white,rectangle,inner sep=0.7 mm]
+\tikzstyle{gray label}=[draw,fill=gray!50!white,rectangle,inner sep=0.7 mm]
+\tikzstyle{black label}=[draw,fill=black,rectangle,inner sep=0.7 mm]
+
+\tikzstyle{dkpoint}=[kpoint,doubled]
+\tikzstyle{wide dkpoint}=[wide kpoint,doubled]
+\tikzstyle{dkpointdag}=[kpoint adjoint,doubled]
+\tikzstyle{wide dkpointdag}=[wide kpointdag,doubled]
+\tikzstyle{dkcopoint}=[kpoint adjoint,doubled]
+\tikzstyle{dkpointadj}=[kpoint adjoint,doubled]
+\tikzstyle{dkpointconj}=[kpoint conjugate,doubled]
+\tikzstyle{dkpointtrans}=[kpoint transpose,doubled]
+
+\tikzstyle{kscalar}=[kpoint common, shape=EBox, inner xsep=-1pt, inner ysep=3pt,font=\small]
+\tikzstyle{kscalarconj}=[kpoint common, shape=WBox, inner xsep=-1pt, inner ysep=3pt,font=\small]
+
+\tikzstyle{spekpoint}=[kpoint sc,minimum height=5mm,inner sep=3pt]
+\tikzstyle{spekcopoint}=[kpoint adjoint sc,minimum height=5mm,inner sep=3pt]
+
+\tikzstyle{dspekpoint}=[spekpoint,doubled]
+\tikzstyle{dspekcopoint}=[spekcopoint,doubled]

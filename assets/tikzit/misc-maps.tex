@@ -1,0 +1,88 @@
+% =======================
+% = OTHER KINDS OF MAPS =
+% =======================
+
+\tikzstyle{small map}=[draw,shape=rectangle,minimum height=4mm,minimum width=4mm,fill=white]
+
+\tikzstyle{cnot}=[fill=white,shape=circle,inner sep=-1.4pt]
+
+\tikzstyle{asym hadamard}=[fill=white,draw,shape=NEbox,inner sep=0.6mm,minimum height=4mm]
+\tikzstyle{asym hadamard conj}=[fill=white,draw,shape=NWbox,inner sep=0.6mm,minimum height=4mm]
+\tikzstyle{asym hadamard dag}=[fill=white,draw,shape=SEbox,inner sep=0.6mm,minimum height=4mm]
+
+
+\tikzstyle{hadamard}=[fill=white,draw,inner sep=0.6mm,minimum height=4mm,minimum width=4mm]
+\tikzstyle{small hadamard}=[fill=white,draw,inner sep=0.6mm,minimum height=1.5mm,minimum width=1.5mm]
+\tikzstyle{small hadamard rotate}=[small hadamard,rotate=45]
+\tikzstyle{dhadamard}=[hadamard,doubled]
+\tikzstyle{small dhadamard}=[small hadamard,doubled]
+\tikzstyle{small dhadamard rotate}=[small hadamard rotate,doubled]
+\tikzstyle{antipode}=[white dot,inner sep=0.3mm,font=\footnotesize]
+
+\tikzstyle{scalar}=[diamond,draw,inner sep=0.5pt,font=\small]
+\tikzstyle{dscalar}=[diamond,doubled, draw,inner sep=0.5pt,font=\small]
+
+\tikzstyle{small box}=[rectangle,inline text,fill=white,draw,minimum height=5mm,yshift=-0.5mm,minimum width=5mm,font=\small]
+\tikzstyle{small gray box}=[small box,fill=gray!30]
+\tikzstyle{medium box}=[rectangle,inline text,fill=white,draw,minimum height=5mm,yshift=-0.5mm,minimum width=10mm,font=\small]
+\tikzstyle{square box}=[small box] % for backwards-compatibility
+\tikzstyle{medium gray box}=[small box,fill=gray!30]
+\tikzstyle{semilarge box}=[rectangle,inline text,fill=white,draw,minimum height=5mm,yshift=-0.5mm,minimum width=12.5mm,font=\small]
+\tikzstyle{large box}=[rectangle,inline text,fill=white,draw,minimum height=5mm,yshift=-0.5mm,minimum width=15mm,font=\small]
+\tikzstyle{large gray box}=[small box,fill=gray!30]
+
+\tikzstyle{Bayes box}=[rectangle,fill=black,draw, minimum height=3mm, minimum width=3mm]
+
+\tikzstyle{gray square point}=[small box,fill=gray!50]
+
+\tikzstyle{dphase box white}=[dhadamard]
+\tikzstyle{dphase box gray}=[dhadamard,fill=gray!50!white]
+\tikzstyle{phase box white}=[hadamard]
+\tikzstyle{phase box gray}=[hadamard,fill=gray!50!white]
+
+% \tikzstyle{point}=[regular polygon,regular polygon sides=3,draw,inner sep=-0.65pt,minimum width=8mm,fill=white,regular polygon rotate=180]
+% \tikzstyle{copoint}=[regular polygon,regular polygon sides=3,draw,inner sep=-0.65pt,minimum width=8mm,fill=white]
+\tikzstyle{point}=[regular polygon,regular polygon sides=3,draw,scale=0.75,inner sep=-0.5pt,minimum width=9mm,fill=white,regular polygon rotate=180]
+\tikzstyle{point nosep}=[regular polygon,regular polygon sides=3,draw,scale=0.75,inner sep=-2pt,minimum width=9mm,fill=white,regular polygon rotate=180]
+\tikzstyle{copoint}=[regular polygon,regular polygon sides=3,draw,scale=0.75,inner sep=-0.5pt,minimum width=9mm,fill=white]
+\tikzstyle{dpoint}=[point,doubled]
+\tikzstyle{dcopoint}=[copoint,doubled]
+
+\tikzstyle{pointgrow}=[shape=cornerpoint,kpoint common,scale=0.75,inner sep=3pt]
+\tikzstyle{pointgrow dag}=[shape=cornercopoint,kpoint common,scale=0.75,inner sep=3pt]
+
+\tikzstyle{wide copoint}=[fill=white,draw,shape=isosceles triangle,shape border rotate=90,isosceles triangle stretches=true,inner sep=0pt,minimum width=1.5cm,minimum height=6.12mm]
+\tikzstyle{wide point}=[fill=white,draw,shape=isosceles triangle,shape border rotate=-90,isosceles triangle stretches=true,inner sep=0pt,minimum width=1.5cm,minimum height=6.12mm,yshift=-0.0mm]
+\tikzstyle{wide point plus}=[fill=white,draw,shape=isosceles triangle,shape border rotate=-90,isosceles triangle stretches=true,inner sep=0pt,minimum width=1.74cm,minimum height=7mm,yshift=-0.0mm]
+
+\tikzstyle{wide dpoint}=[fill=white,doubled,draw,shape=isosceles triangle,shape border rotate=-90,isosceles triangle stretches=true,inner sep=0pt,minimum width=1.5cm,minimum height=6.12mm,yshift=-0.0mm]
+
+\tikzstyle{tinypoint}=[regular polygon,regular polygon sides=3,draw,scale=0.55,inner sep=-0.15pt,minimum width=6mm,fill=white,regular polygon rotate=180]
+
+\tikzstyle{white point}=[point]
+\tikzstyle{white dpoint}=[dpoint]
+\tikzstyle{green point}=[white point] % for backwards-compatibility
+\tikzstyle{white copoint}=[copoint]
+\tikzstyle{gray point}=[point,fill=gray!40!white]
+\tikzstyle{gray dpoint}=[gray point,doubled]
+\tikzstyle{red point}=[gray point] % for backwards-compatibility
+\tikzstyle{gray copoint}=[copoint,fill=gray!40!white]
+\tikzstyle{gray dcopoint}=[gray copoint,doubled]
+
+\tikzstyle{white point guide}=[regular polygon,regular polygon sides=3,font=\scriptsize,draw,scale=0.65,inner sep=-0.5pt,minimum width=9mm,fill=white,regular polygon rotate=180]
+
+\tikzstyle{black point}=[point,fill=black,font=\color{white}]
+\tikzstyle{black copoint}=[copoint,fill=black,font=\color{white}]
+
+\tikzstyle{tiny gray point}=[tinypoint,fill=gray!40!white]
+
+\tikzstyle{diredge}=[->]
+\tikzstyle{ddiredge}=[<->]
+\tikzstyle{rdiredge}=[<-]
+\tikzstyle{thickdiredge}=[->, very thick]
+\tikzstyle{pointer edge}=[->,very thick,gray]
+\tikzstyle{pointer edge part}=[very thick,gray]
+\tikzstyle{dashed edge}=[dashed]
+\tikzstyle{thick dashed edge}=[very thick,dashed]
+\tikzstyle{thick gray dashed edge}=[thick dashed edge,gray!40]
+\tikzstyle{thick map edge}=[very thick,|->]

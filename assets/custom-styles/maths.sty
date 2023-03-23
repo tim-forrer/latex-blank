@@ -1,0 +1,67 @@
+\ProvidesPackage{maths}
+% Maths packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\allowdisplaybreaks % Allows multi-line equations to spread over a page break.
+
+% Custom maths environments
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark*}{Remark}
+
+% Text overline
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+\newcommand{\alwaysprime}{\ensuremath{'}}
+
+% Common quantum
+\newcommand{\psit}{\ket{\psi (t)}}
+\newcommand{\psiO}{\ket{\psi (0)}}
+\newcommand{\eiht}{e^{-i\hat{H}t}}
+\newcommand{\Ut}{U(t)}
+
+% Slightly less common quantum
+\newcommand{\kket}[1]{\ket{#1}\rangle}
+\newcommand{\bbra}[1]{\langle\bra{#1}}
+\newcommand{\stabbell}[1][{}]{(I_{R#1} I_{#1} + X_{R#1} X_{#1} - Y_{R#1} Y_{#1} + Z_{R#1} Z_{#1})}
+\NewDocumentCommand{\ketbra}{m O{#1}}{\ket{#1}\bra{#2}}
+\newcommand{\phiplusket}{\ket{\Phi^+}}
+\newcommand{\phiplusbra}{\bra{\Phi^+}}
+\newcommand{\phiplus}{\phiplusket\phiplusbra}
+\NewDocumentCommand{\phiplusketfull}{O{i} O{A}}{%
+  \sum_{#1 = 1}^{d_{#2}}\ket{#1}\ket{#1}%
+}
+\NewDocumentCommand{\linopmap}{O{A} O{B}}{%
+  \mc{L}(\mc{H}_{#1}) \rightarrow \mc{L}(\mc{H}_{#2})%
+}
+\NewDocumentCommand{\linoptensor}{O{A} O{B}}{%
+  \mc{L}(\mc{H}_{#1}\otimes\mc{H}_{#2})%
+}
+
+
+% Non-italics text operations
+\newcommand{\Tr}[2][{}]{\text{Tr}_{#1}[#2]}
+\newcommand{\Ch}{\text{Ch}}
+\newcommand{\Chinv}[1]{[\text{Ch}^{-1}(#1)]}
+\newcommand{\Ctr}[1]{C\text{-}#1}
+\newcommand{\Img}{\text{Im}}
+\newcommand{\cji}{Choi–Jamiołkowski isomorphism}
+
+% Faster \mathcal notation
+\newcommand{\mc}{\mathcal}
+\NewDocumentCommand{\hilb}{O{}}{\mc{H}_{#1}}
+\newcommand{\linop}[1]{\mc{L}(\hilb{#1})}
+\NewDocumentCommand{\herm}{O{}}{\text{Herm}(\hilb[#1])}

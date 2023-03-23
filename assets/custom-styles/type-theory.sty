@@ -1,0 +1,37 @@
+\ProvidesPackage{type-theory}
+\NewDocumentCommand{\genevents}{O{x}}{%
+  {T_{\mathbb{R}}(#1)}%
+}
+\NewDocumentCommand{\detevents}{O{x}}{%
+  {T_{1}(#1)}%
+}
+\NewDocumentCommand{\admevents}{O{x}}{%
+  {T(#1)}%
+}
+\newcommand{\eletype}[1]{\text{#1}}
+\NewDocumentCommand{\type}{s O{\eletype{A}} O{\eletype{B}}}{%
+  \IfBooleanTF {#1}
+  {\eletype{#2} \rightarrow\; \eletype{#3}}%
+  {#2 \rightarrow\; #3}
+}
+
+% Lb spaces
+\NewDocumentCommand{\lb}{s O{b}}{%
+  \IfBooleanTF {#1}%
+  {\text{L\textsubscript{$\mathbf{#2}$}}}%
+  {\text{L\textsubscript{$#2$}}}%
+}
+\NewDocumentCommand{\lbbar}{s O{b}}{%
+  \IfBooleanTF {#1}%
+  {\text{\textoverline{L}\textsubscript{$\mathbf{#2}$}}}%
+  {\text{\textoverline{L}\textsubscript{$#2$}}}%
+}
+\NewDocumentCommand{\lbperp}{s O{b}}{%
+  \IfBooleanTF {#1}%
+  {\text{L$^\perp_{\mathbf{#2}}$}}%
+  {\text{L$^\perp_{#2}$}}%
+}
+\newcommand{\onestring}{%
+\text{\textbf{e}}%
+}
+\newcommand{\nullstring}{\boldsymbol{\varepsilon}}

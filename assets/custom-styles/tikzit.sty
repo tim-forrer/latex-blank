@@ -1,0 +1,30 @@
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,shapes.geometric,shapes.misc}
+
+\pgfkeys{/tikz/tikzit fill/.initial=0}
+\pgfkeys{/tikz/tikzit draw/.initial=0}
+\pgfkeys{/tikz/tikzit shape/.initial=0}
+\pgfkeys{/tikz/tikzit category/.initial=0}
+
+\newcommand{\tikzfig}[2][1]{%
+\IfFileExists{#2.tikz}
+  {\scalebox{#1}{\input{#2.tikz}}}
+  {%
+    \IfFileExists{./figures/#2.tikz}
+      {\scalebox{#1}{\input{./figures/#2.tikz}}}
+      {\tikz[baseline=-0.5em]{\node[draw=red,font=\color{red},fill=red!10!white] {\textit{#2}};}}%
+  }%
+}
+\newcommand{\ctikzfig}[1]{%
+\begin{center}\rm
+  \tikzfig{#1}
+\end{center}}
+
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{background,edgelayer,nodelayer,main}
+\tikzstyle{none}=[inner sep=0mm]
+\tikzstyle{every loop}=[]
+\tikzstyle{mark coordinate}=[inner sep=0pt,outer sep=0pt,minimum size=3pt,fill=black,circle]

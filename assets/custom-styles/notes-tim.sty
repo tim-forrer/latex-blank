@@ -1,0 +1,32 @@
+\ProvidesPackage{notes-tim}
+
+% Allows for more complicated custom commands
+\usepackage{xparse}
+
+% Margin
+\usepackage[margin=2.5cm]{geometry}
+
+% Links to content
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+% Inline code snippets
+\newcommand{\code}[1]{\texttt{#1}}
+
+% Authors
+\usepackage[affil-it]{authblk}
+
+% Coloured notes
+\newcommand{\note}[1]{{\color{red} #1}}
+
+% Graphics
+\usepackage{graphics}
+
+% Framing stuff
+\usepackage{framed}
