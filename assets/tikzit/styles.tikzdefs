@@ -1,12 +1,12 @@
 \usetikzlibrary{shapes.multipart}
 \usetikzlibrary{circuits.ee.IEC}
-\input{~/latex/tikzit/spiders.tex}
-\input{~/latex/tikzit/misc-maps.tex}
-\input{~/latex/tikzit/commutative.tex}
-\input{~/latex/tikzit/grounds.tex}
-\input{~/latex/tikzit/labels.tex}
-\input{~/latex/tikzit/parallelograms.tex}
-\input{~/latex/tikzit/various-dots.tex}
+\input{assets/tikzit/spiders.tex}
+\input{assets/tikzit/misc-maps.tex}
+\input{assets/tikzit/commutative.tex}
+\input{assets/tikzit/grounds.tex}
+\input{assets/tikzit/labels.tex}
+\input{assets/tikzit/parallelograms.tex}
+\input{assets/tikzit/various-dots.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
